@@ -1,0 +1,20 @@
+# API Keys
+.env
+
+# Node modules
+node_modules
+
+# Build folder
+dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log* 
+
+# testing file
+test.html
+test.css
+# Coverage reports
+coverage/
+# Temporary files
+temp/

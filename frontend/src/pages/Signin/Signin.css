@@ -1,0 +1,215 @@
+/* Container Setup */
+.signin-container {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #f5f6fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left Section */
+.signin-left {
+  flex: 1;
+  background: #212222;
+  color: white;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.signin-left h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.app-name {
+  color: #f39c12;
+}
+
+.tagline {
+  font-size: 18px;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+/* Right Section (Card) */
+.signin-card {
+  flex: 1;
+  background: #121212;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.signin-card h2 {
+  margin: 15px 0;
+  text-align: center;
+  color: #dadada;
+}
+
+/* Image Upload */
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image-circle {
+  width: 100px;
+  height: 100px;
+  background: #ecf0f1;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.image-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-icon {
+  font-size: 40px;
+  color: #7f8c8d;
+}
+
+.custom-file-button {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-file-button:hover {
+  background-color: #2980b9;
+}
+
+.custom-file-button input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 100px;
+  opacity: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+
+.no-image {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Input Fields */
+.input-group {
+  position: relative;
+  margin: 15px 0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #ccc;
+  color: #dadada;
+  border-radius: 5px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #0e8ad7;
+}
+.toggle-password-icon{
+  position: absolute;
+  top: 50%; 
+  right:10px;
+  transform: translateY(-50%);
+  color: #0e8ad7;
+}
+.nav-desk-signBTN {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0e8ad7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-desk-signBTN:hover {
+  background-color: #0c57c6;
+}
+
+.switch-auth {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #dadada;
+}
+
+.switch-auth a {
+  color: #0e8ad7;
+  text-decoration: none;
+}
+
+.switch-auth a:hover {
+  text-decoration: underline;
+}
+
+/* 🔄 Responsive Styling */
+@media (max-width: 768px) {
+  .signin-left,
+  .signin-card {
+    flex: 1 1 100%;
+    padding: 40px 20px;
+    text-align: center !important;
+  }
+
+  .signin-left h1 {
+    font-size: 30px;
+    margin-top:0.5em;
+  }
+
+  .signin-left{
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .signin-left{
+    display: flex;
+  }
+
+  .signin-card h2 {
+    font-size: 22px;
+  }
+}

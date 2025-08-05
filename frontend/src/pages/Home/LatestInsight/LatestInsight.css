@@ -1,0 +1,117 @@
+.LatestInsight {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 27px;
+  box-sizing: border-box;
+}
+.latestInsight-header-p{
+  text-align: left;
+}
+.latestInsight-header-p h2{
+  font-size: 2em;
+  font-weight: 600;
+  color:#1c1c1c;
+}
+.latestInsight-header-p p{
+  font-size: 1.1em;
+  color: #1c1c1cbb;
+}
+.latestInsight-filter-box{
+  margin:1em 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.latestInsight-left-filter{
+  width: 50%;
+  display: flex;
+  gap:0.5em;
+  align-items: center;
+  justify-content: flex-start;
+}
+.latestInsight-left-filter button{
+  background: transparent;
+  border: 1px solid #cccccc38;
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.latestInsight-left-filter button:hover{
+  background: #f0f0f0;
+}
+.latestInsight-left-filter-active{
+  background: #1c1c1c !important;
+  color: #fff !important;
+  border: none;
+  padding: 0.2em 0.6em;
+  cursor: default;
+}
+.latestInsight-right-filter{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap:0.5em;
+}
+.latestInsight-right-filter .latestInsight-sort-label{
+  border: 1px solid #cccccc39;
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.latestInsight-right-filter .latestInsight-sort-label:hover{
+  background: #f0f0f0;
+}
+
+.custom-dropdownLatestInsight .p-dropdown {
+  height: 2.5rem; /* set the height */
+  padding: 0 1rem; /* horizontal padding only */
+  font-size: 0.95rem;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center; /* vertical center the label */
+}
+
+.custom-dropdownLatestInsight .p-dropdown-label {
+  line-height: 1.25rem;
+  padding: 0.35em !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.custom-dropdownLatestInsight .p-dropdown-trigger {
+  display: flex;
+  align-items: center;
+}
+
+.custom-dropdownLatestInsight .p-dropdown-panel {
+  border-radius: 8px;
+}
+
+.custom-dropdownLatestInsight .p-dropdown-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+.custom-dropdownLatestInsight .p-dropdown-item.p-highlight {
+  background-color: #2563eb !important;
+  color: white !important;
+}
+
+
+/* Here the Blog grid Stylling  */
+.latestInsight-blog-data{
+  margin-top:2em;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+  gap: 1.5rem;
+}

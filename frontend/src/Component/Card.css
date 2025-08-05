@@ -1,0 +1,86 @@
+.dataCard {
+  border-radius: 12px;
+  padding: 0.5rem;
+  background-color: transparent !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.dataCard:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.datacard-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Post date and read time */
+.datacard-read-post-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280; /* gray-500 */
+}
+.datacard-readtime{
+    position: relative;
+}
+
+.datacard-readtime::before {
+  position: absolute;
+  left:-0.6em;
+  top:45%;
+  content: "";
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: #35353587;
+}
+
+/* Title */
+.datacard-title {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+}
+
+/* Description with line clamp */
+.datacard-description {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #374151; /* gray-700 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.6em;
+}
+
+/* Author section */
+.data-card-author-details {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.datacard-authorimg img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.datacard-authorname {
+  font-size: 0.95rem;
+  color: #1f2937; /* gray-800 */
+}

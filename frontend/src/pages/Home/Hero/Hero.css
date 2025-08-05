@@ -1,0 +1,249 @@
+.testing-box{
+  width: 100%;
+  height: 100vh !important;
+}
+.testing-box .custom-navigation{
+  height: 80%;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.custom-prev,
+.custom-next {
+  margin-top: 2em;
+  padding: 8px;
+  background-color: #9a9a9a69;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+  top: 50px;
+}
+
+.custom-prev {
+  left: 5px;
+}
+
+.custom-next {
+  right: 5px;
+}
+
+/* Parent container of each slide */
+.home-swiper-container {
+  position: relative;
+  width: 100%;
+  height: 100vh !important;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Background image - full size and behind the content */
+.home-swiper-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* cover entire area */
+  z-index: -1;
+  filter: brightness(0.7);
+  /* optional: dim image for better text visibility */
+}
+
+/* Main content overlay (on top of image) */
+.home-swiper-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  height: 100% !important;
+  padding: 30px;
+  color: white;
+  /* ensure text is readable */
+}
+
+/* Left side content */
+.home-swiper-content-left {
+  flex: 1;
+  max-width: 40%;
+}
+
+.hm-sw-cl-place {
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+  background-color: #e8e8e8b3;
+  color: #000000;
+  padding: 0.2em 0.5em;
+  display: inline-block;
+  border-radius: 0.5em;
+}
+
+.hm-sw-cl-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.hm-sw-cl-description {
+  font-size: 1em;
+  margin-top: 0.2em;
+  /*Now we ensure the description is not take more than 2 line  space*/
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right side content */
+.home-swiper-content-right {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+
+.home-swpr-cr-athr-main-box {
+  height: 40px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+  position: relative;
+  z-index: 10;
+}
+.home-swpr-cr-athr-profileImageBox{
+  height: 36px !important;
+  width: 36px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  box-shadow: 0 0 1em #a7a7a784;
+  position: relative;
+  z-index: 11;
+}
+
+.home-swpr-cr-athr-profileImageBox img{
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+
+.hm-sw-cr-author-name {
+  font-size: 0.9em;
+  color: #fff;
+}
+
+.hm-sw-cr-content-details{
+  display: flex;
+  align-items: center;
+  gap:0.9em;
+}
+.hm-sw-cr-content-date ,.hm-sw-cr-content-read-time{
+  font-size: 0.8em;
+  color:#b6b6b6;
+  position: relative;
+  margin-left: 0.3em;
+}
+.hm-sw-cr-content-read-time::before{
+  position: absolute;
+  left:-2px;
+  top:40%;
+  content: "";
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: #b6b6b6c4;
+  margin-left:-0.5em;
+}
+
+.autoplay-progress {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 28px;
+  height: 28px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #000;
+  z-index:1;
+}
+
+.autoplay-progress svg {
+  --progress: 1;
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.autoplay-progress circle {
+  fill: none;
+  stroke: #838383;
+  stroke-width: 4;
+  stroke-dasharray: 125.6;
+  stroke-dashoffset: calc(125.6 * var(--progress));
+  transition: stroke-dashoffset 0.25s linear;
+}
+
+.autoplay-progress-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: #dddbdbe6;
+  z-index: -1;
+}
+.swiper-pagination {
+  bottom: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  width: auto !important;
+  text-align: left !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #606465c4;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff;
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media (max-width:560px){
+  .home-swiper-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 10 !important;
+  }
+
+  .home-swiper-content-left {
+    max-width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .home-swiper-content-right{
+    max-width: 100%;
+    margin-top: 2em;
+  }
+
+}
