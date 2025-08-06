@@ -65,7 +65,3 @@ function Footer(){
 }
 
 export default Footer
-
-window.addEventListener("resize",()=>{
-  console.log(window.innerWidth);
-})

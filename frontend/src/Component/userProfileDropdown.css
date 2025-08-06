@@ -1,0 +1,101 @@
+.user-profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-user-profile-box {
+  height: 2.1em;
+  width: 2.1em;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-user-profile-box:hover {
+  .nav-user-profile-box{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px !important;
+  }
+}
+
+.profile-dropdown-card {
+  position: absolute;
+  top: 3em;
+  right: 0;
+  width: 230px;
+  background-color: white;
+  border-radius: 0.6em;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  z-index: 100;
+  animation: dropdownFadeIn 0.25s ease-in-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-top {
+  text-align: center;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4eef5;
+  padding:0.6em;
+  border-radius: 0.3em;
+}
+
+.profile-img-large {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5em;
+}
+
+.profile-top h4 {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.profile-top p {
+  margin: 0;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: none;
+  border: none;
+  padding: 0.5em;
+  font-size: 0.95em;
+  cursor: pointer;
+  color: #333;
+  border-radius: 0.4em;
+  transition: background 0.2s;
+}
+
+.dropdown-link:hover {
+  background-color: #f1f1f1;
+}

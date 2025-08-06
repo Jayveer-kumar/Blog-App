@@ -1,11 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useContext } from "react";
+import { AuthContext } from "../../context/Authcontext";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaLock ,FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Login.css"; 
 import Alert from "../../Component/Alert";
 
 const LoginPage = () => {
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const userInputData = {
       email:"",
@@ -40,8 +44,13 @@ const LoginPage = () => {
         let data = await res.json();
         // Means here we geting the server response now we can use it into the setLogSuccess state
         console.log("Response from server : ",data);
-        if(data.success){
-          setalertData({
+
+        const {token , user} = data;
+        login(user,token);
+
+        navigate("/");
+
+         setalertData({
             show:true,
             message:{
               title:"Login Successful",
@@ -51,8 +60,8 @@ const LoginPage = () => {
           })
           setFieldErrors({});
           setFormData(userInputData);
-        }else{
-          setalertData({
+      }catch(err){
+        setalertData({
             show:true,
             message:{
               title:"Login Failed",
@@ -61,8 +70,6 @@ const LoginPage = () => {
             type:"error",
           })
           setFieldErrors(data.errors || {});
-        }
-      }catch(err){
         console.error("Something error in frontend login.jsx fetch function : ");
         console.error(err);
       }

@@ -1,3 +1,6 @@
+
+import { AuthProvider } from "./context/Authcontext";
+
 import React from "react";
 import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer/Footer";
@@ -14,6 +17,7 @@ import Login from "./pages/Login/Login";
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
       <div>
         <Navbar />
@@ -25,6 +29,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </AuthProvider>
   );
 }
 

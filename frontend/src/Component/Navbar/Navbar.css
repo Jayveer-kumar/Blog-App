@@ -173,6 +173,8 @@
     max-width: 350px !important;
 }
 .nav-right-item {
+    /* flex: 1; */
+    /* background-color: red !important; */
     padding: 0 3em;
     display: flex;
     align-items: center;
@@ -198,6 +200,11 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.nav-login-signup-box{
+    display: flex;
+    align-items: center;
+    gap:0.4em;
+}
 .nav-login span {
     font-weight: 600;
     color:#efeeee;
@@ -218,6 +225,11 @@
 }
 .nav-right-item .nav-login , .nav-getStarted{
     flex-shrink: 0 !important;
+}
+.nav-user-profile-box{
+    height: 2.1em;
+    width: 2.1em;
+    border-radius: 50%;
 }
 /* Mobile Layout */
 .nav-mobile {
