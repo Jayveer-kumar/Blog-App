@@ -44,22 +44,33 @@ const LoginPage = () => {
         let data = await res.json();
         // Means here we geting the server response now we can use it into the setLogSuccess state
         console.log("Response from server : ",data);
-
-        const {token , user} = data;
-        login(user,token);
-
-        navigate("/");
-
-         setalertData({
+        
+        if(data.success){
+          const {token , user}=data;
+          login(user,token);
+          navigate("/"); 
+          setalertData({
             show:true,
             message:{
               title:"Login Successful",
               description:"You have successfully logged in.",
             },
             type:"success",
-          })
+          }) 
           setFieldErrors({});
-          setFormData(userInputData);
+          setFormData(userInputData);   
+        }else{
+          setalertData({
+            show:true,
+            message:{
+              title:"Login Failed",
+              description:data.message || "Please check your credentials and try again.",
+            },
+            type:"error",
+          });
+          setFieldErrors(data.message || {});
+        }
+
       }catch(err){
         setalertData({
             show:true,

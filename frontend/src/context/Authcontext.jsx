@@ -7,7 +7,12 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const userData = localStorage.getItem("user");
-    return userData ? JSON.parse(userData) : null;
+    if(!userData || userData === null || userData === undefined || userData === "undefined"){
+      console.log("No user data found in localStorage , returning null");
+      return null;
+    }
+    console.log("User data from localStorage:", userData);
+    return JSON.parse(userData);
   });
 
   //  Alert state

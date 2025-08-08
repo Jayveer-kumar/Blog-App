@@ -17,6 +17,7 @@ import { AuthContext } from "../../context/Authcontext";
 
 
 import UserProfileDropdown from "../userProfileDropdown";
+import { FiPlus } from "react-icons/fi";
 
 // Mobile Layout Component
 import { Sidebar } from 'primereact/sidebar';
@@ -575,8 +576,19 @@ function Navbar() {
               <div className="nav-login-logout-manage-box">
                 {user ? (
                   <>
+                  <div className="nav-user-profile-or-post-box">
+                    <div className="nav-create-post-box">
+                      <Link to="/create-post">
+                      <button className="nav-create-post-btn">
+                        <FiPlus className="nav-create-post-icon" />
+                        <span>Create</span>
+                      </button>
+                      </Link>
+                    </div>
+                  
                     <div className="nav-user-profile-box">
                       <UserProfileDropdown user ={user} onLogout = {logout} /> 
+                    </div>
                     </div>
                   </>
                 ) : (

@@ -226,10 +226,39 @@
 .nav-right-item .nav-login , .nav-getStarted{
     flex-shrink: 0 !important;
 }
+.nav-user-profile-or-post-box{
+    flex:1;
+    display: flex;
+    align-items: center;
+    gap:0.5em;
+}
+.nav-create-post-btn{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 0.3em 1em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.nav-create-post-icon{
+    transition: transform 0.3s ease;
+}
+.nav-create-post-btn:hover {
+    /* when we hover on create post btn then we rotate the icon */
+    .nav-create-post-icon{
+        transform: rotate(90deg);
+    }
+    background-color: #f0f0f0;
+    color: #000000;
+}
 .nav-user-profile-box{
     height: 2.1em;
     width: 2.1em;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 /* Mobile Layout */
 .nav-mobile {

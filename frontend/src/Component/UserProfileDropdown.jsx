@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./UserProfileDropdown.css";
-import { FiLogOut, FiEdit } from "react-icons/fi";
+import { FiLogOut, FiEdit ,FiFileText, FiBookmark ,FiLock ,FiUser } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function UserProfileDropdown({ user, onLogout }) { 
   const [open, setOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function UserProfileDropdown({ user, onLogout }) {
 
   return (
     <div className="user-profile-container" ref={dropdownRef}>
-      <div
+      <div 
         className="nav-user-profile-box"
         onClick={() => setOpen(!open)}
         style={{
@@ -40,9 +41,27 @@ export default function UserProfileDropdown({ user, onLogout }) {
           </div>
 
           <div className="profile-links">
+            <Link to="/profile">
+            <button className="dropdown-link">
+              <FiUser />
+              My Profile
+            </button>
+            </Link>
             <button className="dropdown-link">
               <FiEdit />
               Edit Profile
+            </button>
+            <button className="dropdown-link">
+              <FiFileText />
+              My Posts
+            </button>
+            <button className="dropdown-link">
+              <FiBookmark />
+              Bookmarks
+            </button>
+            <button className="dropdown-link">
+              <FiLock />
+              Privacy Settings
             </button>
             <button className="dropdown-link" onClick={onLogout}>
               <FiLogOut />
