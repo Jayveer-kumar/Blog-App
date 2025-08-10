@@ -3,6 +3,7 @@ import "./Signin.css";
 import { FaUser, FaEnvelope, FaLock, FaImage ,FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Alert from "../../Component/Alert";
+import CircularProgress from '@mui/material/CircularProgress';
 export default function Signin() {
   const userInputData ={
     name:"",
@@ -18,6 +19,8 @@ export default function Signin() {
         message:"",
         type:"info",
       });
+  
+  const [loading , setLoading]= useState(false);    
   
   const handleInputChanges = (e)=>{
     const {name , value } = e.target;
@@ -37,6 +40,7 @@ export default function Signin() {
     formPayload.append("email",formData.email);
     formPayload.append("password",formData.password);
     formPayload.append("image",formData.image);
+    setLoading(true);
     try{
       const response = await fetch("http://localhost:8080/writora/ur/signin",{
         method:"POST",
@@ -66,7 +70,10 @@ export default function Signin() {
       setImage(null);
     }catch(err){
       console.error("Something error in user signin form frontend : ",err);
+    } finally{
+      setLoading(false);
     }
+
   }
 
   const togglePassword = () => {
@@ -135,8 +142,12 @@ export default function Signin() {
           {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-
-        <button type="submit" className="nav-desk-signBTN">Sign In</button>
+        <div className="sign-in-button-box">
+          <button type="submit" className="nav-desk-signBTN" disabled={loading} >
+            {loading ? "Signing In..." : "Sign In"}
+          </button>
+          {loading && <CircularProgress size={24} className="sign-in-loading-spinner" sx={{color:"#ffffff"}} />}
+        </div>
 
         </form>
         {/* Alert Component */}

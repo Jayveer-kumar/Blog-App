@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FaEnvelope, FaLock ,FaEye, FaEyeSlash } from "react-icons/fa";
 import "./Login.css"; 
 import Alert from "../../Component/Alert";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const LoginPage = () => {
     const { login } = useContext(AuthContext);
@@ -17,6 +18,7 @@ const LoginPage = () => {
     }
     const [fieldErrors, setFieldErrors] = useState({});
     const [formData , setFormData] = useState(userInputData);
+    const [loading , setLoading] = useState(false);
     const [alertData , setalertData] = useState({
       show:false,
       message:"",
@@ -33,6 +35,7 @@ const LoginPage = () => {
 
     const handleFormSubmit = async (e)=>{
       e.preventDefault();
+      setLoading(true);
       try{
         let res = await fetch("http://localhost:8080/writora/ur/login",{
           method:"POST",
@@ -83,6 +86,8 @@ const LoginPage = () => {
           setFieldErrors(data.errors || {});
         console.error("Something error in frontend login.jsx fetch function : ");
         console.error(err);
+      } finally{
+        setLoading(false);
       }
     }
     
@@ -125,7 +130,12 @@ const LoginPage = () => {
             {fieldErrors.password && ( <p className="login-error-message-para">{fieldErrors.password}</p> )}
           </div>
 
+          <div className="login-btn-box">
+
           <button type="submit" className="login-btn">Login</button>
+          {loading && <CircularProgress size={24} className="login-loading-spinner" sx={{color:"#ffffff"}} />}
+
+          </div>
           </form>
 
           {/* Alert Component */}

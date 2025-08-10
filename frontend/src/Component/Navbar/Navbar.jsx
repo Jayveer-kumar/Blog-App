@@ -191,11 +191,6 @@ function Navbar() {
             dropdownIcon.classList.remove("nav-dropdown-icon-active");
         }, 100);
     };
-
-   
-    const printUser = () =>{
-        console.log("User Data : ",user);
-    }
    
     return (
       <div className="Navbar">
@@ -224,7 +219,7 @@ function Navbar() {
                         <li>
                           Artificial Inteligence{" "}
                           <i>
-                            <ArrowForwardIcon className="link-arrow-icon" />
+                            <ArrowForwardIcon  />
                           </i>{" "}
                         </li>
                         <li>

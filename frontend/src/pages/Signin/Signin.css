@@ -148,20 +148,27 @@
   transform: translateY(-50%);
   color: #0e8ad7;
 }
-.nav-desk-signBTN {
+.sign-in-button-box{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1em;
   padding: 0.75rem;
+  margin-top: 10px;  
   background-color: #0e8ad7;
-  color: white;
-  border: none;
   border-radius: 8px;
-  cursor: pointer;
-  margin-top: 1rem;
   transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.nav-desk-signBTN {
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
 }
 
-.nav-desk-signBTN:hover {
-  background-color: #0c57c6;
+.sign-in-button-box:hover {
+  background-color: #1c73f5ea;
 }
 
 .switch-auth {

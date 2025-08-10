@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 
 exports.registerUser = async (req, res) => {
   try {
+    console.log("Request Recieved:");
     const { name, email, password } = req.body;
     const image = req.file;
 
