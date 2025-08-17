@@ -1,9 +1,20 @@
 import React from "react"
+
+// import useNavigate
+import { useNavigate } from "react-router-dom";
+
 import "./Card.css"
 
 export default function Card({blogData}){
+    const navigate = useNavigate();
+
+    const handleCardClick = () => {
+        console.log("Card clicked:", blogData.id);
+        navigate(`/blog/${blogData.id}`);
+    };
+
     return (
-        <div key={blogData.id} className="dataCard">
+        <div key={blogData.id} className="dataCard" onClick={handleCardClick}>
             <div className="datacard-img">
                 <img src={blogData.image} alt={blogData.category} />
             </div>

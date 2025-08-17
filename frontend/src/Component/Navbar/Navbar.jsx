@@ -195,7 +195,10 @@ function Navbar() {
     return (
       <div className="Navbar">
         <div className="logo">
-          <h3>Writora</h3>
+          {/* Here we adding a link to home page */}
+          <Link to="/">
+            <h3>Writora</h3>
+          </Link>
         </div>
         {isDesktop ? (
           <div className="nav-desktop">
@@ -573,7 +576,7 @@ function Navbar() {
                   <>
                   <div className="nav-user-profile-or-post-box">
                     <div className="nav-create-post-box">
-                      <Link to="/create-post">
+                      <Link to="/create-blog">
                       <button className="nav-create-post-btn">
                         <FiPlus className="nav-create-post-icon" />
                         <span>Create</span>

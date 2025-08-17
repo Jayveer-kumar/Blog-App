@@ -15,6 +15,8 @@ import "primereact/resources/primereact.min.css";
 import Signin from "./pages/Signin/Signin";
 import Login from "./pages/Login/Login";
 import UserProfile from "./Component/Userprofile/UserProfile";
+import BlogDetails from "./pages/BlogDetails/BlogDetails";
+import CreateBlog from "./pages/CreateBlog/CreateBlog";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/blog/:id" element={<BlogDetails />} />
         </Routes>
         <Footer />
       </div>

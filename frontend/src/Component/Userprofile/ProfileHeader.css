@@ -93,19 +93,45 @@
     align-items: center;
     gap:1em;
 }
-.user-profile-follow-btn{
+/* .user-profile-follow-btn{
     background-color: #000000;
     color: white;
     padding: 0.3em 1.5em;
     border-radius: 0.5em;
-    border: none;
+    border: 1px solid #000;
     cursor: pointer;
+} */
+
+.user-profile-follow-btn {
+  padding: 0.3em 1.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
+
+/* Default (not following) */
+.user-profile-follow-btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* When following */
+.user-profile-follow-btn.following {
+  background-color: #fff;
+  color: green;
+  border: 1px solid green;
+}
+
+
+
 .user-profile-touch-btn{
     border: 1px solid #9ca3af; /* gray-400 */
     background-color: transparent;
     padding: 0.3em 1em;
     border-radius: 0.5em;
+    border: 1px solid #9ca3af;
     cursor: pointer;
 }
 .user-profile-followers-following-box{

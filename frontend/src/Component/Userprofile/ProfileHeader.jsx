@@ -1,8 +1,20 @@
 import "./ProfileHeader.css"; 
 import { useState } from "react";
+import CheckIcon from '@mui/icons-material/Check';
 export default function ProfileHeader() {
   const [showFullBio, setShowFullBio] = useState(false);
+  const [isFollowing , setisFollowing] = useState(false);
   const bioText = "Interface and Brand Designer based in San Antonio. I love minimal design, color theory, and making brands stand out. Let's work together! I specialize in UX/UI design and brand identity with 5+ years of experience.";
+
+  const handleFollow = () =>{
+    setisFollowing(!isFollowing);
+    if(!isFollowing){
+      console.log("You are now following the user.");
+    } else {
+      console.log("You have unfollowed the user.");
+    }
+  }
+
   return (
     <div className="user-profile-main-container">
       <div className="user-profile-loader-head"></div>
@@ -33,7 +45,16 @@ export default function ProfileHeader() {
               )}
             </div>
             <div className="user-profile-follow-touch-btn-box">
-              <button className="user-profile-follow-btn">Follow</button>
+              <button onClick={handleFollow} className={`user-profile-follow-btn ${isFollowing ? "following" : ""}`}>
+                {/* {isFollowing ? "Following" : "Follow"} <CheckIcon /> */}
+                {isFollowing ? (
+                  <>
+                    Following <CheckIcon style={{ marginLeft: "5px", font:"icon" }} />
+                  </>
+                ) : (
+                  "Follow"
+                )}
+              </button>
               <button className="user-profile-touch-btn">Message</button>
             </div>
           </div>

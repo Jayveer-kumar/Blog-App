@@ -44,10 +44,7 @@ const LoginPage = () => {
           },
           body:JSON.stringify(formData)          
         })
-        let data = await res.json();
-        // Means here we geting the server response now we can use it into the setLogSuccess state
-        console.log("Response from server : ",data);
-        
+        let data = await res.json();        
         if(data.success){
           const {token , user}=data;
           login(user,token);
