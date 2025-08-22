@@ -9,10 +9,19 @@
     left:0;
     background-color: transparent;
     z-index: 100;
+    transition: background-color 0.7s ease;
 }
 .nav-scroll {
-  background-color: #010101;
+  background-color: #010101 !important;
   transition: background-color 0.7s ease;
+}
+.nav-createBlogRoute-black{
+    color: #211d1d !important;
+    transition: color 0.7s ease;
+}
+.nav-createBlogRoute-white{
+    color: #efeded !important;
+    transition: color 0.7s ease;
 }
 .logo {
     padding-left: 3.8em;

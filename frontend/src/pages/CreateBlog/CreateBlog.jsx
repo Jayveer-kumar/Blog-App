@@ -1,26 +1,38 @@
 import "./CreateBlog.css";
 import React, { useEffect, useRef } from "react";
+import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import Paragraph from "@editorjs/paragraph";
+import ImageTool from "@editorjs/image";
 
 export default function CreateBlog() {
   const editorRef = useRef(null);
 
   useEffect(() => {
-    if (!window.EditorJS) return;
-
-    const editor = new window.EditorJS({
-      holder: "editorjs", 
+    const editor = new EditorJS({
+      holder: "editorjs",
       tools: {
-        header: {
-            class: window.Header,
-            inlineToolbar:true,
-        },
-        paragraph: {
-            class: window.Paragraph,
-            inlineToolbar:true,
-        },
+        header: { class: Header, inlineToolbar: true },
+        paragraph: { class: Paragraph, inlineToolbar: true },
         image: {
-            class: window.ImageTool,
-            inlineToolbar:true,
+          class: ImageTool,
+          inlineToolbar: true,
+          config: {
+            uploader: {
+              uploadByFile(file) {
+                return new Promise((resolve) => {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                    resolve({
+                      success: 1,
+                      file: { url: reader.result },
+                    });
+                  };
+                  reader.readAsDataURL(file);
+                });
+              },
+            },
+          },
         },
       },
       onReady: () => {
@@ -37,7 +49,6 @@ export default function CreateBlog() {
   }, []);
 
   const handleSave = async () => {
-    // console.log("Window EditorJs", window.EditorJS);
     if (editorRef.current) {
       const data = await editorRef.current.save();
       console.log("Blog Data:", data);
@@ -46,9 +57,8 @@ export default function CreateBlog() {
 
   return (
     <div className="createBlog-main-page">
-      {/* Yeh div ID zaroor match kare */}
       <div id="editorjs" style={{ background: "#fff", minHeight: "200px", padding: "10px" }}></div>
-      <button id="saveBlogButton" onClick={handleSave}>Save </button>
+      <button id="saveBlogButton" onClick={handleSave}>Save</button>
     </div>
   );
 }

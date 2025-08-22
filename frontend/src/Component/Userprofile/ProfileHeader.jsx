@@ -46,7 +46,6 @@ export default function ProfileHeader() {
             </div>
             <div className="user-profile-follow-touch-btn-box">
               <button onClick={handleFollow} className={`user-profile-follow-btn ${isFollowing ? "following" : ""}`}>
-                {/* {isFollowing ? "Following" : "Follow"} <CheckIcon /> */}
                 {isFollowing ? (
                   <>
                     Following <CheckIcon style={{ marginLeft: "5px", font:"icon" }} />

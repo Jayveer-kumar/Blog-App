@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { useLocation  } from 'react-router-dom';
 import "./Navbar.css"
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -50,10 +51,23 @@ const travelImageUrl = [
 ]
 
 function Navbar() {
+    const location= useLocation();
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1100);
     const [visible, setVisible] = useState(false);
     const [selectedCity, setSelectedCity] = useState(null);
+
+    const [isCreateBlogRoute , setisCreateBlogRoute] = useState(false);
+
+    useEffect(()=>{
+        // Check if the current route is '/create-blog'
+        if (location.pathname === '/create-blog') {
+            setisCreateBlogRoute(true);
+        } else {
+            setisCreateBlogRoute(false);
+        }
+    }, [location.pathname]);
+
 
     const {user , logout} = useContext(AuthContext);
 
@@ -65,24 +79,83 @@ function Navbar() {
         { name: 'French', code: 'Fr' }
     ];
 
+    // to manage desktop and mobile view
     const updateMedia = () => {
-        setIsDesktop(window.innerWidth > 1100);
+      setIsDesktop(window.innerWidth > 1100);
     }
+
+    // to manage resize window
     useEffect(() => {
         window.addEventListener("resize", updateMedia);
         return () => window.removeEventListener("resize", updateMedia);
     }, []);
 
+
+   //  to manage navbar colors 
     useEffect(() => {
+        const navbar = document.querySelector('.Navbar');
+        let links = document.querySelectorAll(".nav-links-sl");
+        let logo = document.querySelector(".logo");
+        if (!navbar || links.length === 0 || !logo) return; // Ensure the element exists
+
+        if(isCreateBlogRoute){
+          if(window.pageYOffset <= 40){
+            // On create-blog route with scroll < 40: black text
+            links.forEach(link => {
+                link.classList.add('nav-createBlogRoute-black');
+                link.classList.remove('nav-createBlogRoute-white');
+            });
+            logo.classList.add('nav-createBlogRoute-black');
+            logo.classList.remove('nav-createBlogRoute-white');
+          }else{
+            // On create-blog route with scroll > 40: white text + dark bg
+            navbar.classList.add('nav-scroll');
+            links.forEach(link => {
+                link.classList.remove('nav-createBlogRoute-black');
+                link.classList.add('nav-createBlogRoute-white');
+            });
+            logo.classList.remove('nav-createBlogRoute-black');
+            logo.classList.add('nav-createBlogRoute-white');
+          }
+          navbar.classList.remove("nav-scroll");
+        }else{
+            // Not on create blog route: default white state
+            navbar.classList.remove('nav-scroll');
+           links.forEach(link => {
+              link.classList.remove('nav-createBlogRoute-black');
+              link.classList.add('nav-createBlogRoute-white');
+           });
+           logo.classList.remove('nav-createBlogRoute-black');
+           logo.classList.add('nav-createBlogRoute-white');
+        }
+
+
         const handleScroll = () => {
             const position = window.pageYOffset;
             setScrollPosition(position);
 
-            const navbar = document.querySelector('.Navbar');
             if (position > 40) {
-                navbar.classList.add('nav-scroll');
+                navbar.classList.add('nav-scroll'); 
+
+                links.forEach(link => {
+                  link.classList.remove('nav-createBlogRoute-black');
+                  link.classList.add('nav-createBlogRoute-white');
+                });
+                // also change logo color to white when scroll position is greater then 40
+               logo.classList.remove('nav-createBlogRoute-black');
+               logo.classList.add('nav-createBlogRoute-white');
             } else {
                 navbar.classList.remove('nav-scroll');
+                if(isCreateBlogRoute){
+                  // means here links are not visiable to user se we changes the navbar links color                
+                  links.forEach(link => {
+                      link.classList.add('nav-createBlogRoute-black');
+                      link.classList.remove('nav-createBlogRoute-white');
+                  });
+                  // also change logo color to black when scroll position is less then 40
+                  logo.classList.add('nav-createBlogRoute-black');
+                  logo.classList.remove('nav-createBlogRoute-white');
+                }
             }
         };
 
@@ -91,9 +164,14 @@ function Navbar() {
         // Cleanup
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            if(navbar){
+              navbar.classList.remove('nav-scroll','nav-createBlogRoute-black','nav-createBlogRoute-white')
+            }
         };
-    }, []);
+    }, [isCreateBlogRoute])
 
+
+  // to manage blog image carousel
     useEffect(() => {
         let index = 0;
         const interval = setInterval(() => {
@@ -104,7 +182,7 @@ function Navbar() {
         }, 2000)
         return () => clearInterval(interval)
     }, []);
-
+   // to manage blog image carousel 
     useEffect(() => {
         let index = 0;
         const interval = setInterval(() => {
@@ -115,7 +193,7 @@ function Navbar() {
         }, 2000);
         return () => clearInterval(interval);
     }, []);
-
+   // to manage blog image carousel
     useEffect(() => {
         let index = 0;
         const interval = setInterval(() => {
@@ -128,7 +206,9 @@ function Navbar() {
     }, []);
 
     let dropdownTimeout;
+  
 
+  // to manage dropdowns
     const closeAllDropdowns = () => {
         document.querySelectorAll(".dropdown-h-box").forEach(box => {
             box.classList.remove("nav-dropdown-active");
@@ -137,15 +217,13 @@ function Navbar() {
             icon.classList.remove("nav-dropdown-icon-active");
         });
     };
-
+  // to manage dropdowns
     const handleOpenDropdown = (event) => {
         clearTimeout(dropdownTimeout);
         closeAllDropdowns(); //  this will close other open dropdowns
 
         const dropdownBox = event.currentTarget.querySelector(".dropdown-h-box");
         const dropdownIcon = event.currentTarget.querySelector(".nav-dropdown-icon");
-        console.dir(event.target.childNodes[2]);
-
         if (dropdownBox) {
             dropdownBox.classList.add("nav-dropdown-active");
             dropdownIcon.classList.add("nav-dropdown-icon-active");
@@ -153,7 +231,7 @@ function Navbar() {
     };
 
 
-
+    // to manage dropdowns
     const handleLeaveMouse = (event) => {
         const dropdownBox = event.currentTarget.querySelector(".dropdown-h-box");
         const dropdownIcon = event.currentTarget.querySelector(".nav-dropdown-icon");
@@ -176,11 +254,12 @@ function Navbar() {
     };
 
 
-
+    // to manage dropdowns
     const handleDropdownMouseEnter = () => {
         clearTimeout(dropdownTimeout);
     };
 
+    // to manage dropdowns
     const handleDropdownMouseLeave = (event) => {
         const dropdownBox = event.currentTarget;
         const parentLi = dropdownBox.closest("li");
@@ -204,10 +283,11 @@ function Navbar() {
           <div className="nav-desktop">
             <div className="nav-mid-item">
               <ul>
+
                 <li
                   onMouseEnter={handleOpenDropdown}
                   onMouseLeave={handleLeaveMouse}
-                  className="topic"
+                  className="topic nav-links-sl"
                 >
                   Topics <KeyboardArrowDownIcon className="nav-dropdown-icon" />
                   <div
@@ -392,10 +472,11 @@ function Navbar() {
                     </div>
                   </div>
                 </li>
+
                 <li
                   onMouseEnter={handleOpenDropdown}
                   onMouseLeave={handleLeaveMouse}
-                  className="Explore"
+                  className="Explore nav-links-sl"
                 >
                   Explore{" "}
                   <KeyboardArrowDownIcon className="nav-dropdown-icon" />
@@ -475,10 +556,11 @@ function Navbar() {
                     </div>
                   </div>
                 </li>
+
                 <li
                   onMouseEnter={handleOpenDropdown}
                   onMouseLeave={handleLeaveMouse}
-                  className="Blog"
+                  className="Blog nav-links-sl"
                 >
                   Blogs <KeyboardArrowDownIcon className="nav-dropdown-icon" />
                   <div
@@ -557,6 +639,7 @@ function Navbar() {
                     </div>
                   </div>
                 </li>
+
               </ul>
             </div>
             <div className="nav-right-item">
