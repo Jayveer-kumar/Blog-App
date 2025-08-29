@@ -66,7 +66,7 @@ export default function BlogDetails({ blogData }) {
               </div>
               <div className="blog-details-user-details">
                 <p className="blog-details-user-name">Vijay Pal</p>
-                <p className="blog-details-user-date"> 20th October 2023</p>
+                <p className="blog-details-user-date"> 20th Oct 2023</p>
               </div>
             </div>
             <div className="blog-details-user-share-box">

@@ -9,8 +9,7 @@ export default function Card({blogData}){
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        console.log("Card clicked:", blogData.id);
-        navigate(`/blog/${blogData.id}`);
+        navigate(`/blog-details/${blogData.id}`);
     };
 
     return (

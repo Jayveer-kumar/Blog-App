@@ -12,6 +12,8 @@ import "./App.css";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 
+
+import ScrollToTop from "./Component/ScrollToTop";
 import Signin from "./pages/Signin/Signin";
 import Login from "./pages/Login/Login";
 import UserProfile from "./Component/Userprofile/UserProfile";
@@ -22,6 +24,7 @@ function App() {
   return (
     <AuthProvider>
     <BrowserRouter>
+    <ScrollToTop />
       <div>
         <Navbar />
         <Routes>
@@ -30,7 +33,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/create-blog" element={<CreateBlog />} />
-          <Route path="/blog/:id" element={<BlogDetails />} />
+          <Route path="/blog-details/:id" element={<BlogDetails />} /> 
         </Routes>
         <Footer />
       </div>

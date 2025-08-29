@@ -60,10 +60,13 @@ function Navbar() {
     const [isCreateBlogRoute , setisCreateBlogRoute] = useState(false);
 
     useEffect(()=>{
-        // Check if the current route is '/create-blog'
+        // Check if the current route is '/create-blog' || blog-details
         if (location.pathname === '/create-blog') {
             setisCreateBlogRoute(true);
-        } else {
+        } else if(location.pathname.startsWith('/blog-details')){
+          setisCreateBlogRoute(true);  
+        }
+        else {
             setisCreateBlogRoute(false);
         }
     }, [location.pathname]);
