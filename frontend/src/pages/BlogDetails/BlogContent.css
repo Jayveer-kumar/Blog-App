@@ -1,0 +1,40 @@
+.blog-content {
+  line-height: 1.7;
+  font-size: 1rem;
+  color: #333;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3 {
+  margin: 1em 0 0.5em;
+  font-weight: bold;
+  font-size: large;
+}
+
+.blog-content p {
+  margin: 0.75em 0;
+}
+
+.blog-content .blog-image {
+  margin: 1.5em 0;
+  text-align: center;
+}
+
+.blog-content .blog-image img {
+  max-width: 100%;     /* responsive */
+  height: auto;        /* ratio maintain */
+  border-radius: 0.5em;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.blog-content .blog-image:hover img {
+  transform: scale(1.02);
+}
+
+.blog-content .blog-image span {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.9rem;
+  color: #666;
+}
