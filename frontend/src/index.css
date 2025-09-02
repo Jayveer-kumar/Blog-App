@@ -1,0 +1,48 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* App Colors Variables  */
+:root {
+    --navbar-bg:transparent;
+    --navbar-text:black;
+    --navbar-scrolled-bg:#010101;
+    --navbar-scrolled-text:white;
+    --navbar-scrolled-icon:red;
+    --icon-color:#d3d0d0;
+}
+[data-theme="dark"]{
+    --navbar-bg:transparent;
+    --navbar-text:white;
+    --navbar-scrolled-bg: #222;  /* dark mode me halka grey ya black */
+    --navbar-scrolled-text: #ddd;
+    --icon-color:#d3d0d0;
+    --primary-background-color: #222;
+    --primary-card-background-color: #333;
+    --heading-color:#fff;
+    --primary-text-color:#dadada;
+    --button-border:#eeeded;
+    --button-disabled:#1c1c1c;
+    --active-button:#ffffff;
+    --active-button-text:#000;
+    --button-hover:#a1a1a169;
+}
+[data-theme="light"]{
+    --navbar-bg: transparent;
+    --navbar-text: black;
+    --navbar-scrolled-bg: white;
+    --navbar-scrolled-text: black;
+    --icon-color:#d3d0d0;
+    --primary-background-color: #f9fafb;
+    --primary-card-background-color: #ffffff;
+    --heading-color:#0a0a0a;
+    --primary-text-color:#2d2d2d;
+    --button-border:#2c2c2ca5;
+    --button-disabled:#ffffff;
+    --active-button:#1c1c1c;
+    --active-button-text:#dfdfdf;
+    --button-hover:#eeeeee;
+}

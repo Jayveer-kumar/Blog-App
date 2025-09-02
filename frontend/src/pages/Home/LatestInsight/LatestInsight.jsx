@@ -911,7 +911,7 @@ export default function LatestInsight() {
     <div className="LatestInsight">
       <div className="latestInsight-header-p">
         <h2>Blog</h2>
-        <p>
+        <p className="latestInsight-header-description">
           Here , we share travel tips , destination guides , and stories that
           inspire your next adventure{" "}
         </p>
@@ -920,11 +920,11 @@ export default function LatestInsight() {
       {/* Here we add filter buttons */}
       <div className="latestInsight-filter-box">
         <div className="latestInsight-left-filter">
-          <button onClick={toggleFilter} className="latestInsight-left-filter-active" >All</button>
-          <button onClick={toggleFilter} >Destination</button>
-          <button onClick={toggleFilter} >Culinary</button>
-          <button onClick={toggleFilter} >Lifestyle</button>
-          <button onClick={toggleFilter} >Tips & Hacks</button>
+          <button onClick={toggleFilter} className="latestInsight-left-filter-active" ><span>All</span></button>
+          <button onClick={toggleFilter} ><span>Destination</span></button>
+          <button onClick={toggleFilter} ><span>Culinary</span></button>
+          <button onClick={toggleFilter} ><span>Lifestyle</span></button>
+          <button onClick={toggleFilter} ><span>Tips & Hacks</span></button>
         </div>
         <div className="latestInsight-right-filter">
           <span className="latestInsight-sort-label">Sort by:</span>

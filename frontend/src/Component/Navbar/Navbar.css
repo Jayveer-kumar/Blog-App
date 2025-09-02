@@ -7,12 +7,12 @@
     position: fixed;
     top: 0;
     left:0;
-    background-color: transparent;
+    background-color: var(--navbar-bg);
     z-index: 100;
     transition: background-color 0.7s ease;
 }
 .nav-scroll {
-  background-color: #010101 !important;
+  background-color: var(--navbar-scrolled-bg) !important;
   transition: background-color 0.7s ease;
 }
 .nav-createBlogRoute-black{
@@ -62,6 +62,9 @@
     font-size: 1em;
     font-weight: 600;
     position: relative;
+}
+.nav-common-color-icon{
+    color: var(--icon-color) !important;
 }
 
 .dropdown-h-box {
@@ -184,33 +187,61 @@
     max-height: 260px !important;
     max-width: 350px !important;
 }
+
 .nav-right-item {
     /* flex: 1; */
     /* background-color: red !important; */
-    padding: 0 3em;
+    padding: 0 1em;
     display: flex;
     align-items: center;
     gap:1em;
+}
+.nav-dark-light-mode-btn{
+    cursor: pointer;
 }
 .nav-lngSelector {
     display: flex;
     align-items: center;
     gap:0.3em;
-    color:white;
+    padding: 0.2em 0.4em;
 }
-.navCustomDropdownLanguageSelector{
-    width: 6rem;
-    height: 2.2rem;
-    border-radius: 8px;
-    background-color: #ffffff;
-    border:1px solid transparent !important;
-    font-size: 0.95rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.navCustomDropdownLanguageSelector.p-dropdown {
+  width: 6rem !important;
+  border-radius: 8px !important;
+  background-color: #ffffff !important;
+  border: 1px solid transparent !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.2em 0.4em !important;
 }
-.navCustomDropdownLanguageSelector:hover{
-    border:1px solid #000000 !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+/* Hover state */
+.navCustomDropdownLanguageSelector.p-dropdown:hover {
+  border: 1px solid #000000 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
+
+/* Inner input text */
+.navCustomDropdownLanguageSelector .p-dropdown-label {
+  font-size: 0.95rem !important;
+  padding: 0.2em 0.4em !important;
+}
+
+/* Dropdown panel ke options ko target karna */
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  margin: 4px 0; /* upar niche gap de diya */
+  padding: 0.5em 1em; /* andar ka spacing bhi clean lagega */
+  border-radius: 6px; /* thoda curve bhi */
+}
+
+/* Hover state ko bhi acha dikhana hai */
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
 
 .nav-login-signup-box{
     display: flex;

@@ -846,6 +846,7 @@ export default function BlogDetails() {
                 <p className="blog-details-user-name">{blog.authorName}</p>
                 <p className="blog-details-user-date"> {blog.postDate}</p>
               </div>
+              <p className="blog-details-blog-read-time">{blog.readTime} </p>
             </div>
             <div className="blog-details-user-share-box">
               <div className="blog-details-user-share-facebook-box">

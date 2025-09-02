@@ -6,11 +6,6 @@ import {  Link } from "react-router-dom";
 import "./Card.css"
 
 export default function Card({blogData}){
-
-    // const handleCardClick = () => {
-    //     <Link to={`/blog-details/${blogData.id}`} />
-    // };
-
     return (
         <div key={blogData.id} className="dataCard">
             <Link to={`/blog-details/${blogData.id}`} >

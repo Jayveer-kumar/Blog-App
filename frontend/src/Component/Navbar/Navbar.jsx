@@ -10,6 +10,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import LanguageIcon from '@mui/icons-material/Language';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import { Dropdown } from 'primereact/dropdown';
 import { Link } from "react-router-dom";
 
@@ -53,6 +55,7 @@ const travelImageUrl = [
 function Navbar() {
     const location= useLocation();
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [isDarkMode, setIsDarkMode] = useState(false);
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1100);
     const [visible, setVisible] = useState(false);
     const [selectedCity, setSelectedCity] = useState(null);
@@ -74,6 +77,20 @@ function Navbar() {
 
     const {user , logout} = useContext(AuthContext);
 
+    // Dark mode function
+    const toggleDarkMode = () => {
+      setIsDarkMode(!isDarkMode);
+    }
+
+    //  Dark Mode , Light mode useEffect functions
+
+    useEffect(()=>{
+      if(isDarkMode){
+        document.documentElement.setAttribute("data-theme", "dark");
+      }else{
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    },[isDarkMode])
 
     const cities = [
         { name: 'English', code: 'En' },
@@ -290,9 +307,9 @@ function Navbar() {
                 <li
                   onMouseEnter={handleOpenDropdown}
                   onMouseLeave={handleLeaveMouse}
-                  className="topic nav-links-sl"
+                  className="topic nav-links-sl" 
                 >
-                  Topics <KeyboardArrowDownIcon className="nav-dropdown-icon" />
+                  Topics <KeyboardArrowDownIcon className="nav-dropdown-icon nav-common-color-icon" />
                   <div
                     className="dropdown-h-box"
                     onMouseEnter={handleDropdownMouseEnter}
@@ -482,7 +499,7 @@ function Navbar() {
                   className="Explore nav-links-sl"
                 >
                   Explore{" "}
-                  <KeyboardArrowDownIcon className="nav-dropdown-icon" />
+                  <KeyboardArrowDownIcon className="nav-dropdown-icon nav-common-color-icon" />
                   <div
                     className="dropdown-h-box"
                     onMouseEnter={handleDropdownMouseEnter}
@@ -565,7 +582,7 @@ function Navbar() {
                   onMouseLeave={handleLeaveMouse}
                   className="Blog nav-links-sl"
                 >
-                  Blogs <KeyboardArrowDownIcon className="nav-dropdown-icon" />
+                  Blogs <KeyboardArrowDownIcon className="nav-dropdown-icon nav-common-color-icon" />
                   <div
                     className="dropdown-h-box"
                     onMouseEnter={handleDropdownMouseEnter}
@@ -646,8 +663,15 @@ function Navbar() {
               </ul>
             </div>
             <div className="nav-right-item">
-              <div className="nav-lngSelector">
-                <LanguageIcon className="nav-lngSelector-icon" />
+              <div className="nav-dark-light-mode-btn nav-links-sl">
+                {isDarkMode ? (
+                  <LightModeIcon onClick={toggleDarkMode} />
+                ) : (
+                  <DarkModeIcon onClick={toggleDarkMode} />
+                )}
+              </div>
+              <div className="nav-lngSelector nav-links-sl">
+                <LanguageIcon className="nav-lngSelector-icon " />
                 <Dropdown
                   value={selectedCity}
                   onChange={(e) => setSelectedCity(e.value)}

@@ -2,14 +2,14 @@
     min-height: 100vh;
     width: 100%;
     background-color: #e9e9e99f;
-    padding: 6em;
+    padding: 6em 1em;
     display: flex;
     justify-content: center;
 }
 .blog-details-container{
     width: 90%;
     border-radius: 1em;
-    padding: 1em 3em;
+    padding: 1em 0;
     /* background-color: rgba(220, 20, 60, 0.163); */
 }
 .blog-details-title{
@@ -40,6 +40,24 @@
 }
 .blog-details-user-details p{
    font-size: clamp(0.7em, 1.5vw, 0.8em);
+   color: #262626d8;
+}
+.blog-details-user-name{
+    font-weight: 600 !important;
+    color: #262626 !important;
+}
+.blog-details-blog-read-time{
+    font-size: clamp(0.7em, 1.5vw, 0.8em);
+    color: #888;
+    font-weight: 500;
+    align-self: flex-end;
+    position: relative;
+}
+.blog-details-blog-read-time::before{
+    content: "•";
+    position: absolute;
+    left: -1em;
+    color: #888;
 }
 .blog-details-user-share-box{
     display: flex;
@@ -72,6 +90,7 @@
 
 .blog-details-main-image-box {
   width: 100%;
+  max-height: 30em;
   aspect-ratio: 16 / 9;  /* ratio maintain karne ke liye */
   margin: 1em 0;
   border-radius: 1em;
@@ -81,7 +100,7 @@
 .blog-details-main-image-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* box fill kare, thoda crop ho sakta hai */
+  object-fit: contain;   /* box fill kare, thoda crop ho sakta hai */
   border-radius: inherit;
 }
 
@@ -159,6 +178,6 @@
 }
 @media (max-width:650px){
     .blog-details-main-container{
-        padding: 6em 1em;
+        padding: 6em 0;
     }
 }
