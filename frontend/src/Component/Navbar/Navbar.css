@@ -15,6 +15,11 @@
   background-color: var(--navbar-scrolled-bg) !important;
   transition: background-color 0.7s ease;
 }
+.nav-scroll .nav-logo{
+   color: var(--navbar-text) !important; 
+   /* color: red !important; */
+
+}
 .nav-createBlogRoute-black{
     color: #211d1d !important;
     transition: color 0.7s ease;
@@ -25,8 +30,7 @@
 }
 .logo {
     padding-left: 3.8em;
-    /* color: #9a9a9a; */
-    color: #fff;
+    color: var(--navbar-text);
     font-size: large;
     text-align: center;
     font-weight: 700;
@@ -44,29 +48,25 @@
     display: flex;
     align-items: center;
     gap: 1em;
-    /* color: #ffffff !important; */
-    /* color: #9a9a9a; */
-    color: #fff;
 }
-
 .nav-mid-item ul li {
     list-style: none;
     display: flex;
     align-items: center;
-    cursor: pointer;
     margin-left:1.2em;
-}
-
-.nav-mid-item ul li {
     width: 100%;
     font-size: 1em;
     font-weight: 600;
     position: relative;
-}
-.nav-common-color-icon{
-    color: var(--icon-color) !important;
+    cursor: pointer;
 }
 
+.nav-scroll .nav-mid-item ul .nav-links-sl{
+    color: var(--navbar-text) !important;
+}
+.nav-scroll .nav-mid-item .nav-common-color-icon{
+    color: var(--navbar-text) !important;
+}
 .dropdown-h-box {
     opacity: 0;
     visibility: hidden;
@@ -75,10 +75,10 @@
     position: absolute;
     top:4em;
     width: max-content;
-    /* height: max-content; */
     left: 50%;
     transform: translateX(-50%);
-    background: #010101;
+    /* background: #010101; */
+    background-color: var(--primary-background-color);
     text-align: left;
     color: white;
     padding: 1em 2em;
@@ -108,7 +108,7 @@
     transform: translateX(-50%) rotate(45deg);
     width: 16px;
     height: 16px;
-    background: #010101;
+    background-color: var(--primary-background-color);
     box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.05);
     z-index: -1;
 }
@@ -145,7 +145,7 @@
 .nav-dropdown-content p{
     font-weight: 700 !important;
     padding-left:0.5em;
-    color:#aaa;
+    color:var(--primary-text-color) ;
     font-size: 0.8em;
 }
 .nav-dropdown-content ul{
@@ -159,6 +159,7 @@
     font-size: 0.9em;
     margin-top:0.3em;
     gap: 0.4em;
+    color:var(--primary-text-color);
 }
 .nav-dropdown-content ul li i{
     opacity: 0;
@@ -189,13 +190,19 @@
 }
 
 .nav-right-item {
-    /* flex: 1; */
-    /* background-color: red !important; */
     padding: 0 1em;
     display: flex;
     align-items: center;
     gap:1em;
 }
+
+.nav-scroll .nav-right-item .nav-links-sl{
+    color: var(--navbar-text) !important;
+}
+.nav-scroll .nav-right-item .nav-common-color-icon{
+    color: var(--navbar-text) !important;
+}
+
 .nav-dark-light-mode-btn{
     cursor: pointer;
 }
@@ -208,13 +215,16 @@
 .navCustomDropdownLanguageSelector.p-dropdown {
   width: 6rem !important;
   border-radius: 8px !important;
-  background-color: #ffffff !important;
-  border: 1px solid transparent !important;
+  background-color: var(--active-button) !important;
+  border: 1px solid var(--button-border) !important;
+  color: var(--active-button-text) !important;
   font-size: 0.95rem !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   padding: 0.2em 0.4em !important;
 }
-
+.navCustomDropdownLanguageSelector svg{
+    color: var(--active-button-text) !important;
+}
 /* Hover state */
 .navCustomDropdownLanguageSelector.p-dropdown:hover {
   border: 1px solid #000000 !important;
@@ -225,6 +235,7 @@
 .navCustomDropdownLanguageSelector .p-dropdown-label {
   font-size: 0.95rem !important;
   padding: 0.2em 0.4em !important;
+  color: var(--active-button-text) !important;
 }
 
 /* Dropdown panel ke options ko target karna */
@@ -238,9 +249,6 @@
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
   background-color: #f5f5f5;
 }
-
-
-
 
 
 .nav-login-signup-box{
@@ -279,9 +287,9 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
+    background-color: var(--active-button);
+    color: var(--active-button-text);
+    border: 1px solid var(--button-border);
     padding: 0.3em 1em;
     border-radius: 0.4em;
     cursor: pointer;

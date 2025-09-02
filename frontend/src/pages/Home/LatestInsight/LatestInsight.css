@@ -15,7 +15,7 @@
 }
 .latestInsight-header-p .latestInsight-header-description{
   font-size: 1.1em;
-  color: var(--text-color) !important;
+  color: var(--primary-low-text-color) !important;
 }
 .latestInsight-filter-box{
   margin:1em 0;
@@ -82,19 +82,18 @@
   transition: background 0.3s;
 }
 .latestInsight-right-filter .latestInsight-sort-label:hover{
-  background: #f0f0f0;
+  background: var(--button-hover);
 }
 
 .custom-dropdownLatestInsight .p-dropdown {
-  height: 2.5rem; /* set the height */
-  padding: 0 1rem; /* horizontal padding only */
+  height: 2.5rem; 
+  padding: 0 1rem;
   font-size: 0.95rem;
   border: 2px solid #2563eb;
   border-radius: 8px;
-  background-color: #f9fafb;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  align-items: center; /* vertical center the label */
+  align-items: center; 
 }
 
 .custom-dropdownLatestInsight .p-dropdown-label {

@@ -17,13 +17,14 @@
 [data-theme="dark"]{
     --navbar-bg:transparent;
     --navbar-text:white;
-    --navbar-scrolled-bg: #222;  /* dark mode me halka grey ya black */
+    --navbar-scrolled-bg:#000000ba;
     --navbar-scrolled-text: #ddd;
     --icon-color:#d3d0d0;
-    --primary-background-color: #222;
+    --primary-background-color: #1a1a1a;
     --primary-card-background-color: #333;
     --heading-color:#fff;
-    --primary-text-color:#dadada;
+    --primary-text-color:#dadadafe;
+    --primary-low-text-color:#aaa;
     --button-border:#eeeded;
     --button-disabled:#1c1c1c;
     --active-button:#ffffff;
@@ -35,7 +36,7 @@
     --navbar-text: black;
     --navbar-scrolled-bg: white;
     --navbar-scrolled-text: black;
-    --icon-color:#d3d0d0;
+    --icon-color:#292929;
     --primary-background-color: #f9fafb;
     --primary-card-background-color: #ffffff;
     --heading-color:#0a0a0a;

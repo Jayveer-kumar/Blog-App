@@ -41,28 +41,36 @@ export default function UserProfileDropdown({ user, onLogout }) {
           </div>
 
           <div className="profile-links">
-            <Link to="/profile">
+            <Link className="dropdown-link-box" to="/profile">
             <button className="dropdown-link">
               <FiUser />
               My Profile
             </button>
             </Link>
+            <Link className="dropdown-link-box" to="/profile/edit">
             <button className="dropdown-link">
               <FiEdit />
               Edit Profile
             </button>
+            </Link>
+            <Link className="dropdown-link-box" to="/posts">
             <button className="dropdown-link">
               <FiFileText />
               My Posts
             </button>
+            </Link>
+            <Link className="dropdown-link-box" to="/bookmarks">
             <button className="dropdown-link">
               <FiBookmark />
               Bookmarks
             </button>
-            <button className="dropdown-link">
+            </Link>
+            <Link className="dropdown-link-box" to="/privacy-settings">
+            <button className="dropdown-link" >
               <FiLock />
               Privacy Settings
             </button>
+            </Link>
             <button className="dropdown-link" onClick={onLogout}>
               <FiLogOut />
               Logout

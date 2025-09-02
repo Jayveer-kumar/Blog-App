@@ -6,7 +6,6 @@
 .nav-user-profile-box {
   height: 2.1em;
   width: 2.1em;
-  background-color: #ccc;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -25,7 +24,7 @@
   top: 3em;
   right: 0;
   width: 230px;
-  background-color: white;
+  background-color: var(--primary-background-color) !important;
   border-radius: 0.6em;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 1em;
@@ -51,7 +50,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e4eef5;
+  background-color: var(--primary-card-background-color) !important;
+  /* And also add some box-shadow to bottom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding:0.6em;
   border-radius: 0.3em;
 }
@@ -67,13 +68,14 @@
 .profile-top h4 {
   margin: 0;
   font-size: 1em;
-  color: #333;
+  color:var(--heading-color) !important;
 }
 
 .profile-top p {
   margin: 0;
   font-size: 0.85em;
-  color: #666;
+  color: var(--primary-text-color) !important;
+  opacity: 0.7;
 }
 
 .profile-links {
@@ -81,7 +83,9 @@
   flex-direction: column;
   gap: 0.5em;
 }
-
+.dropdown-link-box{
+border-radius: 0.4em;
+}
 .dropdown-link {
   display: flex;
   align-items: center;
@@ -91,11 +95,10 @@
   padding: 0.5em;
   font-size: 0.95em;
   cursor: pointer;
-  color: #333;
-  border-radius: 0.4em;
+  color: var(--icon-color);  
   transition: background 0.2s;
 }
 
-.dropdown-link:hover {
-  background-color: #f1f1f1;
+.dropdown-link-box:hover {
+  background-color: var(--button-hover);
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useLocation  } from 'react-router-dom';
 import "./Navbar.css"
+// Import here index.css file
+import "../../index.css";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Card from '@mui/material/Card';
@@ -106,8 +108,8 @@ function Navbar() {
 
     // to manage resize window
     useEffect(() => {
-        window.addEventListener("resize", updateMedia);
-        return () => window.removeEventListener("resize", updateMedia);
+      window.addEventListener("resize", updateMedia);
+      return () => window.removeEventListener("resize", updateMedia);
     }, []);
 
 
@@ -296,14 +298,13 @@ function Navbar() {
         <div className="logo">
           {/* Here we adding a link to home page */}
           <Link to="/">
-            <h3>Writora</h3>
+            <h3 className="nav-logo">Writora</h3>
           </Link>
         </div>
         {isDesktop ? (
           <div className="nav-desktop">
             <div className="nav-mid-item">
               <ul>
-
                 <li
                   onMouseEnter={handleOpenDropdown}
                   onMouseLeave={handleLeaveMouse}
@@ -663,14 +664,14 @@ function Navbar() {
               </ul>
             </div>
             <div className="nav-right-item">
-              <div className="nav-dark-light-mode-btn nav-links-sl">
+              <div className="nav-dark-light-mode-btn nav-links-sl nav-common-color-icon">
                 {isDarkMode ? (
                   <LightModeIcon onClick={toggleDarkMode} />
                 ) : (
                   <DarkModeIcon onClick={toggleDarkMode} />
                 )}
               </div>
-              <div className="nav-lngSelector nav-links-sl">
+              <div className="nav-lngSelector nav-links-sl nav-common-color-icon">
                 <LanguageIcon className="nav-lngSelector-icon " />
                 <Dropdown
                   value={selectedCity}
