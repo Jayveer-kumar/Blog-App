@@ -2,7 +2,7 @@
 import { AuthProvider } from "./context/Authcontext";
 
 import React from "react";
-import Navbar from "./Component/Navbar/Navbar";
+import {Navbar} from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer/Footer";
 import MainHero from "./pages/Home/MainHero";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

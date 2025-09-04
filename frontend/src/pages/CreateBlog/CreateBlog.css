@@ -2,7 +2,7 @@
 .createBlog-main-page {
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: var(--primary-background-color) !important;
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
 .editor-container {
     width: 100%;
     max-width: 900px;
-    background: white;
+    background: var(--primary-card-background-color);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -29,18 +29,18 @@
     outline: none;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2d3748;
+    color: var(--primary-text-color) !important;
     background: transparent;
     padding: 1rem 0;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid var(--button-border);
     transition: border-color 0.3s ease;
     font-family: 'Georgia', 'Times New Roman', serif;
     line-height: 1.2;
 }
 
 .blog-title-input::placeholder {
-    color: #a0aec0;
+    color: var(--primary-low-text-color) !important;
     font-size: 2.5rem;
     font-weight: 700;
     opacity: 0.7;
@@ -52,9 +52,10 @@
 
 /* Editor Styling */
 #editorjs {
-    background: #fff;
+    background: var(--primary-background-color);
+    color: var(--primary-text-color);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--button-border);
     min-height: 400px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -67,6 +68,86 @@
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
 }
 
+/* Light mode */
+[data-theme="light"] #editorjs .ce-block,
+[data-theme="light"] #editorjs .ce-paragraph,
+[data-theme="light"] #editorjs .ce-header {
+  color: #2d3748 !important;  /* dark gray/black text */
+}
+
+/* Dark mode */
+[data-theme="dark"] #editorjs .ce-block,
+[data-theme="dark"] #editorjs .ce-paragraph,
+[data-theme="dark"] #editorjs .ce-header {
+  color: #e2e8f0 !important;  /* light gray text */
+}
+
+
+/* Light mode */
+[data-theme="light"] #editorjs .ce-toolbar__plus,
+[data-theme="light"] #editorjs .ce-toolbar__plus svg {
+  color: #2d3748 !important;
+  fill: #2d3748 !important;
+  stroke: #2d3748 !important;
+}
+
+/* Dark mode  for + icon */
+[data-theme="dark"] #editorjs .ce-toolbar__plus,
+[data-theme="dark"] #editorjs .ce-toolbar__plus svg {
+  color: #e2e8f0 !important;
+  fill: #e2e8f0 !important;
+  stroke: #e2e8f0 !important;
+}
+
+
+[data-theme="dark"] #editorjs .ce-toolbar__plus:hover svg {
+  color: #151515 !important;
+  fill: #63b3ed !important;
+  stroke: #63b3ed !important;
+}
+
+[data-theme="light"] #editorjs .ce-toolbar__plus:hover svg {
+  background: #0e0e0e !important;
+  border-radius: 5px;  
+  color: #f3ebeb !important;
+  fill: #2b6cb0 !important;
+  stroke: #2b6cb0 !important;
+}
+
+
+/* Dark Theme for :: icon */
+[data-theme="dark"] .ce-toolbar__settings-btn,
+[data-theme="dark"] .ce-toolbar__drag {
+  color: #d3d0d0 !important;
+  fill: #d3d0d0 !important;
+}
+
+/* Dark Theme for :: icon for hover state  then background color and fill color */
+[data-theme="dark"] .ce-toolbar__settings-btn:hover,
+[data-theme="dark"] .ce-toolbar__drag:hover {
+  background: #f4f4f4 !important;
+  color: #1d1d1d !important;
+  fill: #1d1d1e !important;
+}
+
+
+
+/* Light Theme for :: icon */
+[data-theme="light"] .ce-toolbar__settings-btn,
+[data-theme="light"] .ce-toolbar__drag {
+  color: #292929 !important;
+  fill: #292929 !important;
+}
+
+/* Light Theme for :: icon for hover state  then background color and fill color */
+[data-theme="light"] .ce-toolbar__settings-btn:hover,
+[data-theme="light"] .ce-toolbar__drag:hover {
+  background: #0e0e0e !important;
+  color: #f3ebeb !important;
+  fill: #f3ebeb!important;
+}
+
+
 /* Control Buttons */
 .editor-controls {
     display: flex;
@@ -75,7 +156,7 @@
     align-items: center;
     margin-top: auto;
     padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--button-border);
 }
 
 /* Button Base Styles */
@@ -152,6 +233,7 @@
 
 .data-preview h3 {
     color: #2d3748;
+    /* color: red; */
     margin-bottom: 1rem;
     font-size: 1.2rem;
     font-weight: 600;

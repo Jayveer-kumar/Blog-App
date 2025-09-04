@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Global Styles */
 * {
     margin: 0;
@@ -21,6 +25,7 @@
     --navbar-scrolled-text: #ddd;
     --icon-color:#d3d0d0;
     --primary-background-color: #1a1a1a;
+    --primary-hg-background-color:#000;
     --primary-card-background-color: #333;
     --heading-color:#fff;
     --primary-text-color:#dadadafe;
@@ -38,9 +43,11 @@
     --navbar-scrolled-text: black;
     --icon-color:#292929;
     --primary-background-color: #f9fafb;
+    --primary-hg-background-color:#fff;
     --primary-card-background-color: #ffffff;
     --heading-color:#0a0a0a;
-    --primary-text-color:#2d2d2d;
+    --primary-text-color:#151515;
+    --primary-low-text-color:#2d2d2d;
     --button-border:#2c2c2ca5;
     --button-disabled:#ffffff;
     --active-button:#1c1c1c;

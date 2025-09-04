@@ -1,6 +1,7 @@
 import "./Footer.css"
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YoutubeIcon from '@mui/icons-material/YouTube';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -12,7 +13,7 @@ function Footer(){
           <h2>Writora</h2>
           <div className="social-icons">
             <span><XIcon /></span>
-            <span>🖇️</span>
+            <span><YoutubeIcon/></span>
             <span><LinkedInIcon /></span>
           </div>
         </div>

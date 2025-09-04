@@ -81,7 +81,7 @@ function Navbar() {
 
     // Dark mode function
     const toggleDarkMode = () => {
-      setIsDarkMode(!isDarkMode);
+      setIsDarkMode(!isDarkMode);      
     }
 
     //  Dark Mode , Light mode useEffect functions
@@ -89,8 +89,10 @@ function Navbar() {
     useEffect(()=>{
       if(isDarkMode){
         document.documentElement.setAttribute("data-theme", "dark");
+        changeNavbarIconsColor("dark");
       }else{
         document.documentElement.setAttribute("data-theme", "light");
+        changeNavbarIconsColor("light");
       }
     },[isDarkMode])
 
@@ -121,14 +123,32 @@ function Navbar() {
         if (!navbar || links.length === 0 || !logo) return; // Ensure the element exists
 
         if(isCreateBlogRoute){
+          
           if(window.pageYOffset <= 40){
-            // On create-blog route with scroll < 40: black text
+            // First check the theme of the page
+            const isDarkTheme = document.documentElement.getAttribute("data-theme") === "dark";
+            
             links.forEach(link => {
-                link.classList.add('nav-createBlogRoute-black');
-                link.classList.remove('nav-createBlogRoute-white');
+                // if Dark Theme & Offset < 40 then white text
+                if (isDarkTheme) {
+                    link.classList.add('nav-createBlogRoute-white');
+                    link.classList.remove('nav-createBlogRoute-black');
+                } else {
+                    link.classList.add('nav-createBlogRoute-black');
+                    link.classList.remove('nav-createBlogRoute-white');
+                }
             });
-            logo.classList.add('nav-createBlogRoute-black');
-            logo.classList.remove('nav-createBlogRoute-white');
+
+            // Similarly update logo color
+            if (isDarkTheme) {
+                logo.classList.add('nav-createBlogRoute-white');
+                logo.classList.remove('nav-createBlogRoute-black');
+            } else {
+                logo.classList.add('nav-createBlogRoute-black');
+                logo.classList.remove('nav-createBlogRoute-white');
+            }
+
+
           }else{
             // On create-blog route with scroll > 40: white text + dark bg
             navbar.classList.add('nav-scroll');
@@ -140,6 +160,8 @@ function Navbar() {
             logo.classList.add('nav-createBlogRoute-white');
           }
           navbar.classList.remove("nav-scroll");
+          let theme = document.documentElement.getAttribute("data-theme");
+          changeNavbarIconsColor(theme);
         }else{
             // Not on create blog route: default white state
             navbar.classList.remove('nav-scroll');
@@ -155,6 +177,8 @@ function Navbar() {
         const handleScroll = () => {
             const position = window.pageYOffset;
             setScrollPosition(position);
+            let theme = document.documentElement.getAttribute("data-theme");
+            changeNavbarIconsColor(theme);
 
             if (position > 40) {
                 navbar.classList.add('nav-scroll'); 
@@ -191,6 +215,9 @@ function Navbar() {
             }
         };
     }, [isCreateBlogRoute])
+    
+    
+   
 
 
   // to manage blog image carousel
@@ -1162,4 +1189,28 @@ function Navbar() {
     );
 }
 
-export default Navbar
+
+function changeNavbarIconsColor(theme) {
+  const navLinks = document.querySelectorAll('.nav-links-sl');
+  const logo = document.querySelector('.nav-logo');
+  if(theme === "dark"){
+    // Now check pageOffset 
+    if(window.pageYOffset<=40){
+      navLinks.forEach(link => {
+        link.style.setProperty("color", "#d3d0d0", "important");
+      });
+      logo.style.setProperty("color", "#d3d0d0", "important");
+    }
+  } else {
+    if(window.pageYOffset<=40){
+      navLinks.forEach(link => {
+        link.style.setProperty("color", "#292929", "important");
+      });
+      logo.style.setProperty("color", "#292929", "important");
+    }
+  }
+
+}
+
+export  {Navbar , changeNavbarIconsColor}
+

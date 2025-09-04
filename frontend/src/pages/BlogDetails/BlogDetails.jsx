@@ -1,7 +1,7 @@
 import "./BlogDetails.css";
 import React from "react";
-import { useState , useRef} from "react";
-import { useParams } from "react-router-dom";
+import { useState , useEffect , useRef} from "react";
+import { useParams , useLocation } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
 
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -797,9 +797,9 @@ export default function BlogDetails() {
     const [dislikeCount, setDislikeCount] = useState(10);
     const [selectedImage, setSelectedImage] = useState(null);
 
-    const blog = tempData.find(blog => blog.id === Number(id));
+    console.log("Welcome to BlogDetails Page : ");
 
-    console.log("Found blog:", blog);
+    const blog = tempData.find(blog => blog.id === Number(id));
 
     if(!blog) {
       return <div className="blog-details-main-container" >Blog not found</div>;
@@ -928,6 +928,7 @@ export default function BlogDetails() {
                   onTextChange={(e) => setText(e.htmlValue)}
                   style={{ height: "320px", width: "100%" }}
                   placeholder="Write your thoughts here..."
+                  className="blog-details-leave-comment-editor"
                 />
               </div>
             </div>
