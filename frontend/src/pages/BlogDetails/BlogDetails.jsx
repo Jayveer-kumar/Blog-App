@@ -19,6 +19,7 @@ import { Toast } from 'primereact/toast';
 
 import { Editor } from "primereact/editor";
 import BlogContent from "./BlogContent";
+import Comment from "./Comment";
 
  const tempData = [
   {
@@ -922,7 +923,7 @@ export default function BlogDetails() {
               Leave a Comment
             </h2>
             <div className="blog-details-leave-comment-box">
-              <div className="card">
+              <div className="card relative">
                 <Editor
                   value={text}
                   onTextChange={(e) => setText(e.htmlValue)}
@@ -930,9 +931,12 @@ export default function BlogDetails() {
                   placeholder="Write your thoughts here..."
                   className="blog-details-leave-comment-editor"
                 />
+                <button className="absolute bottom-2 right-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Comment</button>
               </div>
             </div>
           </div>
+          {/* User Comments Section */}
+          <Comment />
         </div>
       </div>
     );

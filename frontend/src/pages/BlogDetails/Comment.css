@@ -1,0 +1,61 @@
+.comment-left{
+    color: var(--heading-color);
+}
+.comment-swap-icon{
+    color: var(--icon-color);
+}
+/* Wrapper border */
+.comment-filter-dropdown.p-dropdown {
+  background-color: var(--primary-card-background-color);
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem;
+  color: var(--primary-text-color) !important;
+  padding: 0.1rem 0.2rem; /* andar ki spacing */
+}
+
+/* Label (selected item) */
+.comment-filter-dropdown .p-dropdown-label {
+  color: var(--primary-text-color) !important;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* UserComponent Styling */
+.comment-user-username{
+    color: var(--heading-color);
+}
+
+.comment-date{
+    color: var(--primary-low-text-color);
+    position: relative;
+    margin-left:0.5em;
+}
+.comment-date::before{
+    content: "•";
+    position: absolute;
+    left: -0.6em;
+    color: var(--primary-low-text-color);
+}
+
+.user-comment-content{
+    color: var(--primary-text-color);
+}
+.comment-common-icon{
+    color: var(--icon-color);
+    font-size: 1.2em !important;
+}
+.comment-like-count , .comment-dislike-count{
+    color: var(--primary-low-text-color);
+    font-size: 0.7em !important;
+    margin-left: 0.2em;
+}
+
+.comment-replying-to{
+    color: var(--primary-low-text-color);
+}
+
+.reply-textarea{
+    background-color: var(--primary-card-background-color) !important;
+    color: var(--primary-text-color) !important;
+    border: 1px solid var(--button-border) !important;
+}
