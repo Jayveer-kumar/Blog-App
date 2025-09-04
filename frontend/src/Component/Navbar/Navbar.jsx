@@ -178,7 +178,10 @@ function Navbar() {
             const position = window.pageYOffset;
             setScrollPosition(position);
             let theme = document.documentElement.getAttribute("data-theme");
-            changeNavbarIconsColor(theme);
+            if(isCreateBlogRoute){
+              changeNavbarIconsColor(theme);
+            }
+            
 
             if (position > 40) {
                 navbar.classList.add('nav-scroll'); 
@@ -691,7 +694,8 @@ function Navbar() {
               </ul>
             </div>
             <div className="nav-right-item">
-              <div className="nav-dark-light-mode-btn nav-links-sl nav-common-color-icon">
+              {/* nav-common-color-icon This class i removed from nav-dark-light-mode-btn */}
+              <div className="nav-dark-light-mode-btn nav-links-sl ">
                 {isDarkMode ? (
                   <LightModeIcon onClick={toggleDarkMode} />
                 ) : (
@@ -1191,6 +1195,12 @@ function Navbar() {
 
 
 function changeNavbarIconsColor(theme) {
+  // First check location of the page means if we not on the create-blog page and not blog-details page then simply return
+  if(!window.location.pathname.startsWith("/create-blog") && !window.location.pathname.startsWith("/blog-details/")){
+    console.log("We are on the home page . Not any improvement is required!");
+    return;
+  }else{
+  console.log("Navbar color improvement is required for this page :  ");  
   const navLinks = document.querySelectorAll('.nav-links-sl');
   const logo = document.querySelector('.nav-logo');
   if(theme === "dark"){
@@ -1209,8 +1219,11 @@ function changeNavbarIconsColor(theme) {
       logo.style.setProperty("color", "#292929", "important");
     }
   }
+}
 
 }
 
-export  {Navbar , changeNavbarIconsColor}
+export default Navbar;
+
+export  { changeNavbarIconsColor}
 

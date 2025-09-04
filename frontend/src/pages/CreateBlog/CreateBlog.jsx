@@ -18,13 +18,11 @@ export default function CreateBlog() {
   useEffect(()=>{
     let theme = document.documentElement.getAttribute("data-theme");
     changeNavbarIconsColor(theme);
-    console.log("Theme is changed to : ",theme);
   },[])
 
   window.addEventListener("scroll",()=>{
     let theme = document.documentElement.getAttribute("data-theme");
     changeNavbarIconsColor(theme);
-    console.log("After Scroll theme is changed to : ",theme);
   })
 
   useEffect(() => {
